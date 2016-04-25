@@ -1,3 +1,9 @@
 node_modules
 npm-debug.log
 .idea
+# ignore fonts
+examples/*.woff
+examples/*.eot
+examples/*.ttf
+examples/*.svg
+examples/*.woff2
