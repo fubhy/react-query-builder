@@ -83161,7 +83161,11 @@
 	            return _react2.default.createElement(
 	                'div',
 	                null,
-	                _react2.default.createElement('hr', null),
+	                _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    stringify((0, _utils.queryBuilderFormat)(props.tree, props.config))
+	                ),
 	                _react2.default.createElement(
 	                    'div',
 	                    null,
@@ -83184,6 +83188,16 @@
 	            return _react2.default.createElement(
 	                'div',
 	                null,
+	                _react2.default.createElement(
+	                    _reactQueryBuilder.Query,
+	                    _extends({}, config_props, { value: (0, _utils.queryBuilderToTree)(ruleset), get_children: this.getChildren }),
+	                    ' '
+	                ),
+	                _react2.default.createElement(
+	                    _reactQueryBuilder.Query,
+	                    _extends({}, config_props, { value: (0, _utils.queryBuilderToTree)(ruleset), get_children: this.getChildren }),
+	                    ' '
+	                ),
 	                _react2.default.createElement(
 	                    _reactQueryBuilder.Query,
 	                    _extends({}, config_props, { get_children: this.getChildren }),
