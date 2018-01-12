@@ -1,2 +1,7 @@
 node_modules
-npm-debug.log
+lerna-debug.log
+yarn-error.log
+
+# Ignore build directories in packages.
+packages/**/dist
+packages/**/coverage

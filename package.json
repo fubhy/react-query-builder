@@ -1,46 +1,27 @@
 {
-  "name": "react-query-builder",
-  "version": "0.0.4",
-  "main": "modules",
-  "scripts": {
-    "build-global": "rm -rf build/global && NODE_ENV=production webpack modules/index.js build/global/ReactQueryBuilder.js && NODE_ENV=production COMPRESS=1 webpack modules/index.js build/global/ReactQueryBuilder.min.js && echo \"gzipped, the global build is `gzip -c build/global/ReactQueryBuilder.min.js | wc -c` bytes\"",
-    "build-npm": "rm -rf build/npm && babel -d build/npm/lib ./modules && cp README.md build/npm && find build/npm/lib -type d -name __tests__ | xargs rm -rf && node -p 'p=require(\"./package\");p.main=\"lib\";p.scripts=p.devDependencies=undefined;JSON.stringify(p,null,2)' > build/npm/package.json",
-    "build-examples": "cd examples && webpack --config webpack.config.production.js",
-    "examples": "cd examples && webpack-dev-server --config webpack.config.js -d --hot --inline --display-error-details --colors --history-api-fallback --no-info --port 3000"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/fubhy/react-query-builder.git"
-  },
-  "author": "Sebastian Siemssen <fubhy@fubhy.com> (https://github.com/fubhy)",
+  "private": true,
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/fubhy/react-query-builder/issues"
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "precommit": "lint-staged",
+    "bootstrap": "yarn install && lerna bootstrap",
+    "postbootstrap": "yarn run build",
+    "build": "lerna run --parallel --ignore react-query-builder-demo build",
+    "test": "lerna run --parallel --ignore react-query-builder-demo test",
+    "start": "lerna run --stream --scope react-query-builder-demo start",
+    "format":
+      "prettier --trailing-comma all --single-quote --write \"packages/*/src/**/*.js\"",
+    "predeploy": "yarn run test && yarn run build",
+    "deploy":
+      "lerna publish -m \"chore: Publish\" --independent --registry https://registry.npmjs.org/"
   },
-  "homepage": "https://github.com/fubhy/react-query-builder",
+  "lint-staged": {
+    "*.js*": ["prettier --trailing-comma all --single-quote --write", "git add"]
+  },
   "devDependencies": {
-    "babel": "^5.6.14",
-    "babel-core": "^5.6.15",
-    "babel-eslint": "^3.1.19",
-    "babel-loader": "^5.2.2",
-    "babel-runtime": "^5.6.15",
-    "css-loader": "^0.15.1",
-    "eslint": "^0.24.0",
-    "eslint-config-airbnb": "0.0.6",
-    "eslint-plugin-react": "^2.6.2",
-    "immutable": "^3.7.4",
-    "lodash": "^3.9.3",
-    "mocha": "^2.2.5",
-    "node-sass": "^3.2.0",
-    "react": "^0.13.3",
-    "react-hot-loader": "^1.2.7",
-    "react-pure-render": "^1.0.2",
-    "react-router": "^1.0.0-beta2",
-    "redux": "^1.0.0-alpha",
-    "rf-changelog": "^0.4.0",
-    "sass-loader": "^1.0.2",
-    "style-loader": "^0.12.3",
-    "webpack": "^1.10.0",
-    "webpack-dev-server": "^1.10.1"
+    "husky": "^0.14.3",
+    "lerna": "^2.5.1",
+    "lint-staged": "^6.0.0",
+    "prettier": "^1.9.1"
   }
 }

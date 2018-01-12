@@ -1,5 +1,34 @@
-{
-  "stage": 0,
-  "loose": "all",
-  "optional": "runtime"
+{  
+  "env": {
+    "production": {
+      "presets": [
+        ["env", {
+          "targets": {
+            "browsers": ["last 2 versions"]
+          },
+          "modules": false
+        }], 
+        "stage-0",
+        "react"
+      ],
+      "plugins": [
+        "transform-flow-strip-types",
+        "external-helpers"
+      ]
+    },
+    "test": {
+      "presets": [
+        ["env", {
+          "targets": {
+            "node": "current"
+          }
+        }],
+        "stage-0",
+        "react"
+      ],
+      "plugins": [
+        "transform-flow-strip-types"
+      ]
+    }
+  }
 }
