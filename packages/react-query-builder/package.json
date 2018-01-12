@@ -1,6 +1,6 @@
 {
   "name": "react-query-builder",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "license": "MIT",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
