@@ -1,0 +1,170 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after {
+  content: '';
+  content: none; }
+
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+.group--header:after, .rule--header:after, .rule--body:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+*, *::before, *::after {
+  box-sizing: border-box; }
+
+/******************************************************************************/
+/** COMMON ********************************************************************/
+/******************************************************************************/
+.query-builder, .query-preview {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.25;
+  margin: 1rem; }
+
+.query-preview {
+  font-size: 14px;
+  background: rgba(250, 240, 210, 0.5);
+  border: 1px solid #DCC896;
+  min-height: 1rem;
+  display: block;
+  padding: 1rem; }
+
+.group {
+  background: rgba(250, 240, 210, 0.5);
+  border: 1px solid #DCC896; }
+
+.rule {
+  background-color: white;
+  border: 1px solid gray; }
+
+.group, .rule {
+  margin-top: 10px;
+  padding: 10px;
+  position: relative; }
+
+/******************************************************************************/
+/** GROUP *********************************************************************/
+/******************************************************************************/
+.group--children {
+  margin-left: 20px; }
+  .group--children > .rule:last-child::before, .group--children > .group:last-child::before {
+    bottom: 50%; }
+  .group--children > .rule::before, .group--children > .rule::after, .group--children > .group::before, .group--children > .group::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -13px;
+    background-color: gray; }
+  .group--children > .rule::before, .group--children > .group::before {
+    width: 2px;
+    top: -11px;
+    bottom: -1px; }
+  .group--children > .rule::after, .group--children > .group::after {
+    top: 50%;
+    height: 2px;
+    width: 13px; }
+
+.group--conjunctions {
+  float: left; }
+
+.group--actions {
+  float: right; }
+
+/******************************************************************************/
+/** RULE **********************************************************************/
+/******************************************************************************/
+.rule--header {
+  float: right; }
+
+.rule--field, .rule--operator, .rule--options, .rule--widget {
+  display: inline-block;
+  margin-right: 10px; }
+
+.rule--field label, .rule--operator label {
+  display: block;
+  font-weight: bold; }
+
+/******************************************************************************/
+/** CONJUNCTION ***************************************************************/
+/******************************************************************************/
+.conjunction {
+  display: inline-block; }
+  .conjunction label {
+    display: inline-block;
+    border: 1px solid;
+    cursor: pointer;
+    color: white;
+    text-transform: uppercase;
+    padding: 0.2rem 0.4rem; }
+  .conjunction input {
+    display: none; }
+  .conjunction[data-state="active"] label {
+    background-color: #3276b1;
+    border-color: #285e8e; }
+  .conjunction[data-state="inactive"] label {
+    background-color: #428bca;
+    border-color: #357ebd; }
+    .conjunction[data-state="inactive"] label:hover {
+      background-color: #3276b1;
+      border-color: #285e8e; }
+  .conjunction:first-child label {
+    border-radius: 3px 0 0 3px; }
+  .conjunction:last-child label {
+    border-radius: 0 3px 3px 0; }
+  .conjunction:first-child:last-child {
+    border-radius: 3px; }
+
+/******************************************************************************/
+/** ACTION ********************************************************************/
+/******************************************************************************/
+.action {
+  display: inline-block;
+  background-color: #5cb85c;
+  border: 1px solid #4cae4c;
+  cursor: pointer;
+  color: white;
+  padding: 0.2rem 0.4rem;
+  text-decoration: none; }
+  .action:first-child {
+    border-radius: 3px 0 0 3px;
+    border-left-width: 1px; }
+  .action:last-child {
+    border-radius: 0 3px 3px 0; }
+  .action:first-child:last-child {
+    border-radius: 3px; }
+
+.action--DELETE {
+  background-color: #d9534f;
+  border-color: #d43f3a; }
+
+/*# sourceMappingURL=app.4ca3ec9462fc578f51e3ad813a9b5cc4.css.map*/
