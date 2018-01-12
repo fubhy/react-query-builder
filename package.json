@@ -13,7 +13,7 @@
       "prettier --trailing-comma all --single-quote --write \"packages/*/src/**/*.js\"",
     "predeploy": "yarn run test && yarn run build",
     "deploy":
-      "lerna publish -m \"chore: Publish\" --independent --registry https://registry.npmjs.org/"
+      "lerna publish -m \"chore: Publish\" --ignore react-query-builder-demo --independent --registry https://registry.npmjs.org/"
   },
   "lint-staged": {
     "*.js*": ["prettier --trailing-comma all --single-quote --write", "git add"]

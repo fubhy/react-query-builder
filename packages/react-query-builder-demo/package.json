@@ -1,6 +1,7 @@
 {
   "private": true,
   "name": "react-query-builder-demo",
+  "version": "1.0.0",
   "scripts": {
     "clean": "rimraf dist",
     "start": "webpack-dev-server",
