@@ -4,7 +4,6 @@
   "license": "MIT",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
-  "browser": "dist/index.umd.js",
   "scripts": {
     "clean": "rimraf dist && rimraf coverage",
     "prebuild": "yarn run clean",
